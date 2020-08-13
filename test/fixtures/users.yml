@@ -3,11 +3,11 @@
 one:
   username: MyString
   email: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  password_digest: <%= SCrypt::Password.create('secret') %>
   organization_id: 1
 
 two:
   username: MyString
   email: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
+  password_digest: <%= SCrypt::Password.create('secret') %>
   organization_id: 1
