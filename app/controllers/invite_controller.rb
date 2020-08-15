@@ -1,4 +1,6 @@
 class InviteController < ApplicationController
+  skip_before_action :load_user
+
   def register
     @organization = Organization.find(params[:org_id])
     @user = User.new
