@@ -2,6 +2,7 @@ class User < ApplicationRecord
   require 'scrypt'
 
   belongs_to :organization
+  has_many :requests
   attr_accessor :password, :password_confirmation
   validates :password, length: { minimum: 6 }
   validates_confirmation_of :password

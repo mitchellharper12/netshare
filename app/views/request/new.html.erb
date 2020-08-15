@@ -1,0 +1,17 @@
+<h1>Request Internet Access</h1>
+
+<%= form_with method: :post, local: true do |f| %>
+How many students need access?<br>
+<%= f.label "Student count:" %>
+<%= f.number_field value: @request.head_count %></br>
+Please enter your address below:<br>
+<%= f.label "Street Address:" %>
+<%= f.text_field :street, value: @request.street %><br>
+<%= f.label "City:" %>
+<%= f.text_field :city, value: @request.city %><br>
+<%= f.label "State" %>
+<%= select_tag :state, options_for_select(us_states) %><br>
+Country: USA
+<%= f.hidden_field :country, value: "United States" %><br>
+<%= f.submit "Request" %>
+<% end %>
