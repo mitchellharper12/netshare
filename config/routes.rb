@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/my_requests', to: 'request#my_requests', as: :my_requests
   get '/request', to: 'request#new', as: :new_request
   post '/request', to: 'request#create', as: :create_request
+  post '/request/:request_id/delete', to: 'request#destroy', as: :delete_request
   namespace :admin do
     resources :organizations
   end
