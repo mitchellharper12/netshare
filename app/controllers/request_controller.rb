@@ -1,5 +1,5 @@
 class RequestController < ApplicationController
-  before_action :check_ownership, only: :destroy
+  before_action :check_ownership, except: [:new, :create]
 
   def my_requests
   end

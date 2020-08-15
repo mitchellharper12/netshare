@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   get '/request', to: 'request#new', as: :new_request
   post '/request', to: 'request#create', as: :create_request
   post '/request/:request_id/delete', to: 'request#destroy', as: :delete_request
+
+  get '/listing', to: 'listing#new', as: :new_listing
+  post '/listing', to: 'listing#create', as: :create_listing
+  post '/listing/:listing_id/delete', to: 'listing#destroy', as: :delete_listing
+
   namespace :admin do
     resources :organizations
   end

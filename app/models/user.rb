@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   belongs_to :organization
   has_many :requests
+  has_many :listings
   attr_accessor :password, :password_confirmation
   validates :password, length: { minimum: 6 }
   validates_confirmation_of :password

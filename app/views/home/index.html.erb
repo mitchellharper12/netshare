@@ -11,3 +11,20 @@ I need internet access: <%= link_to  "Request internet access", new_request_path
 <% end %>
 </table>
 <% end %>
+
+<% if @listings.length == 0 %>
+I can provide internet to others: <%= link_to "Volunteer internet access", new_listing_path %>
+<% else %>
+<h2>Internet Offer Summary</h2>
+<table>
+<tr><td>Offer Date/Time</td><td>Address</td><td>Capacity</td><td>Actions</td></tr>
+<% @listings.each do |listing| %>
+<tr>
+  <td><%= listing.created_at %></td>
+  <td><%= listing.address %></td>
+  <td><%= listing.capacity %></td>
+  <td><%= button_to "Delete", delete_listing_path(listing.id), method: :post, data: { confirm: "Are you sure you want do remove this offer?" } %></td>
+<tr>
+<% end %>
+</table>
+<% end %>
