@@ -16,11 +16,11 @@ class User
   #validates :email, uniqueness: true
   #validates :username, uniqueness: true
   validate do |record|
-    if User.where(email: record.email)
-      record.errors[:email] << "Email is already taken"
+    if User.where(email: record.email).count > 0
+      record.errors[:email] << "already taken"
     end
-    if User.where(username: record.username)
-      record.errors[:username] << "Username is already taken"
+    if User.where(username: record.username).count > 0
+      record.errors[:username] << "already taken"
     end
   end
   validate do |record|
