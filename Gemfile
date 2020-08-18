@@ -7,7 +7,7 @@ ruby '2.7.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 
 # Crutch
-gem 'mysql2'
+#gem 'mysql2'
 
 # Actual
 gem 'dynamoid'

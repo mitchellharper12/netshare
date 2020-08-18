@@ -2,7 +2,7 @@ class Admin::OrganizationsController < ApplicationController
   before_action :load_user
 
   def index
-    @organizations = Organization.all
+    @organizations = Organization.all.entries
   end
 
   def new
@@ -25,7 +25,7 @@ class Admin::OrganizationsController < ApplicationController
     end
 
     def load_user
-      if User.all.length != 0
+      if User.all.count != 0
         super
         if @user && @user.organization.title != "Admin"
           flash[:alert] = "Unauthorized"
