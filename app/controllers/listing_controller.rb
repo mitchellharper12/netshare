@@ -12,7 +12,7 @@ class ListingController < ApplicationController
     @listing.city = params[:city]
     @listing.state = params[:state]
     @listing.country = params[:country]
-    @listing.user_ids = [@user.id]
+    @listing.user = @user
 
     if @listing.save
       flash[:notice] = "Your internet offer has been listed"
