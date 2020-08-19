@@ -1,7 +1,7 @@
 class Listing
   include Dynamoid::Document
   table capacity_mode: :on_demand
-  field :user_id, :integer
+  #field :user_id
   field :street
   field :city
   field :state

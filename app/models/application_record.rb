@@ -1,4 +1,2 @@
-class ApplicationRecord < ActiveRecord::Base
-  self.abstract_class = true
-  include ActiveModel::Model
+class ApplicationRecord
 end

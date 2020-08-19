@@ -13,7 +13,11 @@ class InviteController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
     @user.set_password_digest(params[:password])
-    @user.organization_id = params[:organization_id]
+    # Due to Dynamoid storage quirks, we must use the
+    # array format below in order to prevent a record from
+    # being written to the database which would make the uniqueness
+    # validations necessarily fail
+    @user.organization = Organization.find(params[:organization_id])
     if @user.save
       flash[:notice] = "User successfully created, please log in"
       redirect_to login_path

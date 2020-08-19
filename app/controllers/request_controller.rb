@@ -15,19 +15,21 @@ class RequestController < ApplicationController
     @request.city = params[:city]
     @request.state = params[:state]
     @request.country = params[:country]
-    @request.user_id = @user.id
+    @request.user = @user
 
     if @request.save
       flash[:notice] = "Request successful"
       redirect_to :root
     else
       flash[:alert] = "Error"
-      render :new
+      render :new, status: 400
     end
   end
 
   def destroy
-    if @request.destroy
+    result = @request.user.requests.delete(@request)
+    result = @request.destroy && result
+    if result
       flash[:notice] = "Request deleted"
     else
       # TODO better handling

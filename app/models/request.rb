@@ -1,7 +1,7 @@
 class Request
   include Dynamoid::Document
   table capacity_mode: :on_demand
-  field :user_id, :integer
+  #field :user_id
   field :head_count, :integer
   field :street
   field :city
